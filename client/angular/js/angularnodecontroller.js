@@ -1,4 +1,7 @@
 'use strict';
+
+
+
 var myApp = angular.module('myApp', []);
 
 myApp.config(['$httpProvider', function($httpProvider) {
@@ -61,11 +64,23 @@ function DataViewer($scope, $http, $templateCache) {
   $scope.showContent = function(dataid) {
     var url = 'http://localhost:1212/getcontent';
     $http.get(url).success(function(data) {
-    let contentId = data.find(x => x.ID === dataid);
-    $scope.message = JSON.stringify(contentId.structure);
+      let contentId = data.find(x => x.ID === dataid);
+      $scope.message = contentId.structure;
+      chemViewer.setDimension('500px', '400px');
+      Kekule.IO.loadResourceData($scope.message, function(mol, success) {
+        if (success) {
+          chemViewer.setChemObj(mol);
+        } else {
+          console.log('Loading from failed');
+        }
+      });
+
     });
   };
 
+
+  var chemViewer = new Kekule.ChemWidget.Viewer(document);
+  chemViewer.appendToElem(document.getElementById('chemViewer1'));
 
 
   $scope.list();

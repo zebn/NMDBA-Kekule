@@ -47,7 +47,7 @@ app.get('/getcontent', function(req, res) {
       });
       str = '[';
       data.forEach(function(ent1) {
-        str = str + '{ "name" : "' + ent1.username + '",'+'"ID" : "' + ent1._id + '",'+'"structure" : "'+ent1.password + '"},' + '\n';
+        str = str + '{ "name" : "' + ent1.name + '",'+'"ID" : "' + ent1._id + '",'+'"structure" : "'+ent1.structure + '"},' + '\n';
       });
       str = str.trim();
       str = str.substring(0, str.length - 1);
