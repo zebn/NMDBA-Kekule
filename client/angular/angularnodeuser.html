@@ -16,19 +16,22 @@
 </head>
 
 <body ng-controller="DataViewer">
+
+
   <div class="split left">
     <div class="centered">
+      <div><h4>Angular Node MongoDB Kekule Molecule viewer</h4></div>
       Search: <input ng-model="user">
-      <ul class="users">
-        <li ng-repeat="user in users | filter:user ">
-          <a class="show-m" ng-click="showContent(user.ID)">{{user.name}} {{user.ID}}</a>
+      <ul class="molecules">
+        <li ng-repeat="molecule in molecules | filter:molecule ">
+          <a class="show-m" ng-click="showContent(molecule.ID)">{{molecule.name}}</a>
         </li>
       </ul>
     </div>
 
     <div class="split right">
       <div class="centered">
-        <a href={{message}}>Molecule: {{message}}</a>
+        <h2 align=center>Molecule: {{molname}} </h2>
         <div id="chemViewer1"></div>
         <!-- <div class="span10">
         <form name="myform" id="myform1" ng-submit="save()">

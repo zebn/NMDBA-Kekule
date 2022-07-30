@@ -57,7 +57,7 @@ function DataViewer($scope, $http, $templateCache) {
   $scope.list = function() {
     var url = 'http://localhost:1212/getcontent';
     $http.get(url).success(function(data) {
-      $scope.users = data;
+      $scope.molecules = data;
     });
   };
 
@@ -65,13 +65,13 @@ function DataViewer($scope, $http, $templateCache) {
     var url = 'http://localhost:1212/getcontent';
     $http.get(url).success(function(data) {
       let contentId = data.find(x => x.ID === dataid);
-      $scope.message = contentId.structure;
+      $scope.molname = contentId.name;
       chemViewer.setDimension('500px', '400px');
-      Kekule.IO.loadResourceData($scope.message, function(mol, success) {
+      Kekule.IO.loadResourceData(contentId.structure, function(mol, success) {
         if (success) {
           chemViewer.setChemObj(mol);
         } else {
-          console.log('Loading from failed');
+          console.log('Loading failed');
         }
       });
 
