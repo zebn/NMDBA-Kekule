@@ -21,7 +21,11 @@
   <div class="split left">
     <div class="centered">
       <div><h4>Angular Node MongoDB Kekule Molecule viewer</h4></div>
-      Search: <input ng-model="user">
+      <br>
+      <br>
+      <br>
+      <br>
+      Search: <input ng-model="molecule">
       <ul class="molecules">
         <li ng-repeat="molecule in molecules | filter:molecule ">
           <a class="show-m" ng-click="showContent(molecule.ID)">{{molecule.name}}</a>
