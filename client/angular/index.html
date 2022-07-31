@@ -11,7 +11,7 @@
   <script src="libs/raphael-min.2.0.1.js"></script>
   <script src="libs/Three.js"></script>
   <script src="libs/kekule/kekule.js?modules=io,chemWidget"></script>
-  <script src="js/angularnodecontroller.js"></script>
+  <script src="js/controller.js"></script>
 
 </head>
 
@@ -22,8 +22,8 @@
     <div class="centered">
       <div><h4>Angular Node MongoDB Kekule Molecule viewer</h4></div>
       <br>
-      <br>
-      <br>
+
+
       <br>
       Search: <input ng-model="molecule">
       <ul class="molecules">
@@ -31,7 +31,10 @@
           <a class="show-m" ng-click="showContent(molecule.ID)">{{molecule.name}}</a>
         </li>
       </ul>
+      <div> Source: <a href="https://github.com/zebn/NMDBA-Kekule">Github</a> </div>
     </div>
+
+
 
     <div class="split right">
       <div class="centered">
