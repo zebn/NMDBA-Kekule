@@ -26,9 +26,11 @@ app.configure(function() {
     showStack: true
   }));
   app.use(express.json());
-  app.use(express.urlencoded({ extended: true }));
+  app.use(express.urlencoded({
+    extended: true
+  }));
   app.use(express.static(path.join(__dirname, 'static')));
-  });
+});
 
 
 
@@ -37,8 +39,9 @@ app.get('/api', function(req, res) {
 });
 
 app.get('/getcontent', function(req, res) {
-  res.header("Access-Control-Allow-Origin", "http://localhost");
-  res.header("Access-Control-Allow-Methods", "GET, POST");
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE")
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
   db.things.find('', function(err, data) {
     if (err || !data) console.log("No molecules found");
     else {
@@ -47,7 +50,7 @@ app.get('/getcontent', function(req, res) {
       });
       str = '[';
       data.forEach(function(ent1) {
-        str = str + '{ "name" : "' + ent1.name + '",'+'"ID" : "' + ent1._id + '",'+'"structure" : "'+ent1.structure + '"},' + '\n';
+        str = str + '{ "name" : "' + ent1.name + '",' + '"ID" : "' + ent1._id + '",' + '"structure" : "' + ent1.structure + '"},' + '\n';
       });
       str = str.trim();
       str = str.substring(0, str.length - 1);

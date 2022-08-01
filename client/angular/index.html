@@ -4,9 +4,10 @@
 <head>
   <meta charset="utf-8">
   <title>Angular Node MongoDB Kekule Molecule viewer</title>
-  <link rel="stylesheet" href="css/app.css">
-  <link rel="stylesheet" href="css/bootstrap.css">
 
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="libs/kekule/themes/default/kekule.css">
+  <link rel="stylesheet" href="css/app.css">
   <script src="libs/angular/angular.js"></script>
   <script src="libs/raphael-min.2.0.1.js"></script>
   <script src="libs/Three.js"></script>
@@ -18,27 +19,27 @@
 <body ng-controller="DataViewer">
 
 
-  <div class="split left">
-    <div class="centered">
-      <div><h4>Angular Node MongoDB Kekule Molecule viewer</h4></div>
-      <br>
+<div class="grid-container">
+
+<div class="item1"><h3>Angular Node MongoDB Kekule Molecule viewer</h3></div>
 
 
-      <br>
+<div class="item2">
       Search: <input ng-model="molecule">
       <ul class="molecules">
         <li ng-repeat="molecule in molecules | filter:molecule ">
           <a class="show-m" ng-click="showContent(molecule.ID)">{{molecule.name}}</a>
         </li>
       </ul>
-      <div> Source: <a href="https://github.com/zebn/NMDBA-Kekule">Github</a> </div>
-    </div>
+
+
+</div>
 
 
 
-    <div class="split right">
-      <div class="centered">
-        <h2 align=center>Molecule: {{molname}} </h2>
+
+<div class="item3">
+        <h3 align=center>Molecule: {{molname}} </h3>
         <div id="chemViewer1"></div>
         <!-- <div class="span10">
         <form name="myform" id="myform1" ng-submit="save()">
@@ -58,9 +59,11 @@
         </form>
       </div> -->
 
-      </div>
-    </div>
+</div>
 
+<div class="item4"><h3> Source: <a href="https://github.com/zebn/NMDBA-Kekule">Github</a></h3></div>
+
+</div>
 </body>
 
 </html>

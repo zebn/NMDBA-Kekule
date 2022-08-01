@@ -1,43 +1,83 @@
 /* app css stylesheet */
 html, body {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-}
-
-.split {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  color: #5f5b57;
+  background: #C0C0C0;
+  text-transform: capitalize;
   height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
+  padding: 0;
+  margin: 0;
 }
 
-/* Control the left side */
-.left {
-  left: 0;
-  background-color: white;
+
+a {
+  color: #696969;
+  text-decoration: none;
 }
 
-/* Control the right side */
-.right {
-  right: 0;
-  background-color: white;
+a:hover {
+  color: #696969;
+  text-decoration: underline;
 }
 
-/* If you want the content centered horizontally and vertically */
-.centered {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  color: #5f5b57;
+  font-size: 20px;
+  font-weight: 500;
 }
 
-/* Style the image inside the centered container, if needed */
-.centered img {
-  width: 150px;
-  border-radius: 50%;
+.chemViewer {
+  --atom-color: #A00000;
+  --bond-color: #A0A000;
+  /* render options other than color */
+  --bond-line-width: 4;
+  --font-size: 20
+    /* Note the bond width and font size are simply numbers without units */
+    grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  background-color: #C0C0C0;
+  padding: 10px;
+}
+
+.grid-container>div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  /* font-size: 30px; */
+}
+
+.item1 {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.item2 {
+  grid-row-start: 2;
+  grid-row-end: 5;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.item3 {
+  grid-row-start: 2;
+  grid-row-end: 5;
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.item4 {
+  grid-row-start: 5;
+  grid-row-end: 7;
+  grid-column-start: 1;
+  grid-column-end: 4;
 }
