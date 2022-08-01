@@ -19,12 +19,16 @@
 <body ng-controller="DataViewer">
 
 
-<div class="grid-container">
+  <div class="grid-container">
 
-<div class="item1"><h3>Angular Node MongoDB Kekule Molecule viewer</h3></div>
+    <div class="item1">
+      <h3>Angular Node MongoDB Kekule Molecule viewer</h3>
+      <br>
+      Connected: {{urlpath}}
+    </div>
 
 
-<div class="item2">
+    <div class="item2">
       Search: <input ng-model="molecule">
       <ul class="molecules">
         <li ng-repeat="molecule in molecules | filter:molecule ">
@@ -33,37 +37,41 @@
       </ul>
 
 
-</div>
-
-
-
-
-<div class="item3">
-        <h3 align=center>Molecule: {{molname}} </h3>
-        <div id="chemViewer1"></div>
-        <!-- <div class="span10">
-        <form name="myform" id="myform1" ng-submit="save()">
-          <fieldset>
-            <legend>New User</legend>
-            <div class="control-group">
-              <center><input type="text" placeholder="User…" ng-model="username" size=50 required /></center>
-              <center><input type="text" placeholder="Password…" ng-model="password" size=50 required /></center>
-              <center><input type="text" placeholder="Email…" ng-model="email" size=50 required /></center>
-            </div>
-          </fieldset>
-          <p>
-          <div>
-            <center><button type="submit">Save now...</button></center>
+      <form name="myform" id="myform1" ng-submit="save()">
+        <fieldset>
+          <br>
+          New Molecule
+          <br>
+          <div class="control-group">
+            <center><input type="text" placeholder="Name…" ng-model="name" size=50 required /></center>
+            <center><input type="text" placeholder="Structure…" ng-model="structure" size=50 required /></center>
           </div>
-          </p>
-        </form>
-      </div> -->
+        </fieldset>
+        <p>
+        <div>
+          <center><button type="submit">Save now...</button></center>
+        </div>
+        </p>
+      </form>
 
-</div>
 
-<div class="item4"><h3> Source: <a href="https://github.com/zebn/NMDBA-Kekule">Github</a></h3></div>
+    </div>
 
-</div>
+
+
+
+    <div class="item3">
+      <h3 align=center>Molecule: {{molname}} </h3>
+      <div id="chemViewer1"></div>
+
+
+    </div>
+
+    <div class="item4">
+      <h3> Source: <a href="https://github.com/zebn/NMDBA-Kekule">Github</a></h3>
+    </div>
+
+  </div>
 </body>
 
 </html>
