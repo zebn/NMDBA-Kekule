@@ -60,30 +60,28 @@ app.get('/getcontent', function(req, res) {
   });
 });
 
-// app.post('/insertmolecule', function(req, res) {
-//   console.log("POST: ");
-//   res.header("Access-Control-Allow-Origin", "http://localhost");
-//   res.header("Access-Control-Allow-Methods", "GET, POST");
-//   res.writeHead(200, {'Content-Type': 'text/plain'});
-//   user = req.body.username;
-//   passwd = req.body.password;
-//   emailid = req.body.email;
-//   console.log(req.body);
-//   console.log(req.body.mydata);
-//   var jsonData = JSON.parse(req.body.mydata);
-//   console.log(jsonData.username);
-//   console.log(jsonData.password);
-//   console.log(jsonData.email);
-//
-//   db.things.save({
-//     email: jsonData.email,
-//     password: jsonData.password,
-//     username: jsonData.username
-//   }, function(err, saved) {
-//     if (err || !saved) res.end("User not saved");
-//     else res.end("User saved");
-//   });
-// });
+app.post('/insertmolecule', function(req, res) {
+  console.log("POST: ");
+  res.header("Access-Control-Allow-Origin", "http://localhost");
+  res.header("Access-Control-Allow-Methods", "GET, POST");
+  res.writeHead(200, {
+    'Content-Type': 'text/plain'
+  });
+  name = req.body.name;
+  structure = req.body.structure;
+  console.log(req.body);
+  console.log(req.body.mydata);
+  var jsonData = JSON.parse(req.body.mydata);
+  console.log(jsonData.name);
+  console.log(jsonData.structure);
+  db.things.save({
+    name: jsonData.name,
+    structure: jsonData.structure
+  }, function(err, saved) {
+    if (err || !saved) res.end("M not saved");
+    else res.end("M saved");
+  });
+});
 
 
 

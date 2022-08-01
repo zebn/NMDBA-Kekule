@@ -23,10 +23,11 @@ function DataViewer($scope, $http, $templateCache) {
     $http.get(url).success(function(data) {
       let contentId = data.find(x => x.ID === dataid);
       $scope.molname = contentId.name;
-      chemViewer.setDimension('500px', '400px');
+      chemViewer.setDimension('640px', '480px');
       chemViewer.setRenderType(Kekule.Render.RendererType.R3D);
       chemViewer.setMoleculeDisplayType(Kekule.Render.Molecule3DDisplayType.STICKS);
-      chemViewer.setBackgroundColor('transparent');
+      chemViewer.setBackgroundColor('#C0C0C0');
+      chemViewer.setEnableToolbar(true);
       Kekule.IO.loadResourceData(contentId.structure, function(mol, success) {
         if (success) {
           chemViewer.setChemObj(mol);
@@ -85,6 +86,6 @@ function DataViewer($scope, $http, $templateCache) {
   var chemViewer = new Kekule.ChemWidget.Viewer(document);
   chemViewer.appendToElem(document.getElementById('chemViewer1'));
 
-  $scope.showContent("519320aeb61f7af7b4fa57fe");
+  $scope.showContent("62e7e3f03979a4443bf9c17a");
   $scope.list();
 }
